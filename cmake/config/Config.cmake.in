@@ -28,7 +28,7 @@ find_dependency(WebP CONFIG REQUIRED)
 find_dependency(zlib-ng CONFIG REQUIRED)
 
 # asmjit should not be included with iOS builds as iOS doesn't support JIT compilation.
-if(NOT IOS AND NOT VCPKG_CMAKE_SYSTEM_NAME MATCHES "iOS")
+if(NOT IOS AND NOT VCPKG_CMAKE_SYSTEM_NAME MATCHES "iOS" AND NOT CMAKE_SYSTEM_NAME MATCHES "tvOS")
     find_dependency(asmjit CONFIG REQUIRED)
 endif()
 

@@ -132,7 +132,7 @@ set(PACKAGES_PRIVATE
 )
 
 # asmjit needed by blend2d on non-iOS platforms (iOS and Wasm don't support JIT)
-if(NOT CESIUM_TARGET_WASM AND NOT IOS AND NOT VCPKG_CMAKE_SYSTEM_NAME MATCHES "iOS")
+if(NOT CESIUM_TARGET_WASM AND NOT IOS AND NOT VCPKG_CMAKE_SYSTEM_NAME MATCHES "iOS" AND NOT CMAKE_SYSTEM_NAME MATCHES "tvOS")
     list(APPEND PACKAGES_PRIVATE blend2d asmjit)
 else()
     # Use [core] feature to disable default jit feature.
@@ -406,7 +406,7 @@ find_package(WebP CONFIG REQUIRED)
 find_package(zlib-ng CONFIG REQUIRED)
 
 # asmjit should not be included with iOS or Wasm builds as they don't support JIT compilation.
-if(NOT CESIUM_TARGET_WASM AND NOT IOS AND NOT VCPKG_CMAKE_SYSTEM_NAME MATCHES "iOS")
+if(NOT CESIUM_TARGET_WASM AND NOT IOS AND NOT VCPKG_CMAKE_SYSTEM_NAME MATCHES "iOS" AND NOT CMAKE_SYSTEM_NAME MATCHES "tvOS")
     find_package(asmjit CONFIG REQUIRED)
 endif()
 

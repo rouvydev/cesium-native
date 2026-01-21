@@ -141,6 +141,10 @@
 - Fixed a bug in `Tileset::loadMetadata` that did not account for cases where the root tile could be `nullptr`, e.g., after attempting to load a tileset from an invalid URL.
 - Fixed a bug that could cause an assertion failure or crash when destroying a `Cesium3DTilesSelection::Tileset` very soon after creating it using the constructor taking a custom `TilesetContentLoader` or `TilesetContentLoaderFactory`.
 
+##### Additions :tada:
+
+- Added support for tvOS platform.
+
 ### v0.56.0 - 2026-01-05
 
 ##### Breaking Changes :mega:
